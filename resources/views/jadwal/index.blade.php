@@ -33,7 +33,7 @@
                 <a href="{{ route('jadwal.pengingat') }}" class="btn btn-success btn-lg shadow-sm">
                     <i class="fas fa-plus me-2"></i>Tambah Pengingat
                 </a>
-                </div>
+                </div>  
                 <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>

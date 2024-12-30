@@ -36,8 +36,8 @@
                             <input type="text"
                                    class="form-control @error('namaPasien') is-invalid @enderror"
                                    name="namaPasien"
-                                   value="{{ old('namaPasien', $jadwal->namaPasien) }}"
                                    required
+                                   value="{{ old('namaPasien', $jadwal->nama_pasien) }}"
                                    placeholder="Masukkan nama pasien">
                             @error('namaPasien')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -54,8 +54,8 @@
                             <input type="tel"
                                    class="form-control @error('noTelepon') is-invalid @enderror"
                                    name="noTelepon"
-                                   value="{{ old('noTelepon', $jadwal->noTelepon) }}"
                                    required
+                                   value="{{ old('noTelepon', $jadwal->no_telepon) }}"
                                    placeholder="Masukkan Nomor Telepon">
                             @error('noTelepon')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -73,8 +73,8 @@
                                    class="form-control datepicker @error('tanggalSuntik') is-invalid @enderror"
                                    id="tanggalSuntik"
                                    name="tanggalPeriksa"
-                                   value="{{ old('tanggalPeriksa', $jadwal->tanggalPeriksa) }}"
                                    required
+                                   value="{{ old('tanggalPeriksa', $jadwal->tanggal_periksa) }}"
                                    placeholder="Masukkan Tanggal Suntik">
                             @error('tanggalSuntik')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -92,9 +92,9 @@
                                     id="jadwalPengingat"
                                     name="jadwalPengingat"
                                     required>
-                                <option value="-1" {{ old('jadwalPengingat', $jadwal->jadwalPengingat) == '-1' ? 'selected' : '' }}>H-1</option>
-                                <option value="-2" {{ old('jadwalPengingat', $jadwal->jadwalPengingat) == '-2' ? 'selected' : '' }}>H-2</option>
-                                <option value="-3" {{ old('jadwalPengingat', $jadwal->jadwalPengingat) == '-3' ? 'selected' : '' }}>H-3</option>
+                                <option value="-1" {{ $jadwal->jadwal_pengingat == -1 ? 'selected' : '' }}>H-1</option>
+                                <option value="-2" {{ $jadwal->jadwal_pengingat == -2 ? 'selected' : '' }}>H-2</option>
+                                <option value="-3" {{ $jadwal->jadwal_pengingat == -3 ? 'selected' : '' }}>H-3</option>
                             </select>
                             @error('jadwalPengingat')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -112,7 +112,7 @@
                                    class="form-control @error('tanggalPengingat') is-invalid @enderror"
                                    id="tanggalPengingat"
                                    name="tanggalPengingat"
-                                   value="{{ old('tanggalPengingat', $jadwal->tanggalPengingat) }}"
+                                   value="{{ old('tanggalPengingat', $jadwal->tanggal_pengingat) }}"
                                    readonly>
                             @error('tanggalPengingat')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -129,7 +129,7 @@
                             <select class="form-select @error('jenisPengingat') is-invalid @enderror"
                                     name="jenisPengingat"
                                     required>
-                                <option value="whatsapp" {{ old('jenisPengingat', $jadwal->jenisPengingat) == 'whatsapp' ? 'selected' : '' }}>WhatsApp</option>
+                                <option value="whatsapp" {{ $jadwal->jenis_pengingat == 'whatsapp' ? 'selected' : '' }}>WhatsApp</option>
                             </select>
                             @error('jenisPengingat')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -162,7 +162,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         flatpickr('.datepicker', {
             dateFormat: "Y-m-d",
-            defaultDate: "{{ old('tanggalPeriksa', $jadwal->tanggalPeriksa) }}",
+            defaultDate: "{{ $jadwal->tanggal_periksa }}",
             allowInput: true,
         });
 

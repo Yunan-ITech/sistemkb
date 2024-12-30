@@ -60,7 +60,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/ingat/{id}', [App\Http\Controllers\JadwalController::class, 'ingatDestroy'])->name('jadwal.pengingat.destroy');
     Route::post('/ingat/update-jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'updateJadwalPengingat'])->name('jadwal.updateJadwalPengingat');
     Route::post('/periksa/update/{id}', [App\Http\Controllers\JadwalController::class, 'updateJadwalPeriksa'])->name('jadwal.updateJadwalPeriksa');
-
+    Route::delete('/jadwal/pengingat/{id}', [App\Http\Controllers\JadwalController::class, 'destroyPengingat'])->name('jadwal.destroyPengingat');
+    Route::delete('/jadwal/periksa/{id}', [App\Http\Controllers\JadwalController::class, 'destroyPeriksa'])->name('jadwal.destroyPeriksa');
 
     // ini adalah route untuk riwayat pasien
     Route::get('/riwayat', [App\Http\Controllers\RiwayatController::class, 'index'])->name('riwayat');

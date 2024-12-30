@@ -111,6 +111,26 @@ class JadwalController extends Controller
         return redirect()->route('jadwal')->with('error', 'Jadwal not found');
     }
 
+    public function destroyPengingat($id)
+    {
+        $pengingat = JadwalSuntikKB::find($id);
+        if ($pengingat) {
+            $pengingat->delete();
+            return redirect()->route('jadwal')->with('success', 'Data pengingat berhasil dihapus');
+        }
+        return redirect()->route('jadwal')->with('error', 'Data pengingat tidak ditemukan');
+    }
+
+    public function destroyPeriksa($id) 
+    {
+        $periksa = JadwalPeriksa::find($id);
+        if ($periksa) {
+            $periksa->delete();
+            return redirect()->route('jadwal')->with('success', 'Data periksa berhasil dihapus');
+        }
+        return redirect()->route('jadwal')->with('error', 'Data periksa tidak ditemukan');
+    }
+
     public function searchPasien(Request $request)
     {
         $pasiens = Pasien::where('nama', 'like', '%'.$request->nama.'%')->get();
