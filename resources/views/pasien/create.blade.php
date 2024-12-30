@@ -51,7 +51,7 @@
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
                             <label for="namaDokter" class="form-label fw-bold">Nama Dokter</label>
-                            <input type="text" name="namaDokter" class="form-control @error('idDokter') is-invalid @enderror"
+                            <input type="text" name="namaDokter" class="form-control @error('namaDokter') is-invalid @enderror"
                                 placeholder="Masukkan nama dokter" required>
                             @error('id_dokter')
                                 <div class="invalid-feedback">{{ $message }}</div>

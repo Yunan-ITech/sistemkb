@@ -15,7 +15,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -46,8 +46,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/jadwal/periksa', [App\Http\Controllers\JadwalController::class, 'createperiksa'])->name('jadwal.periksa');
     Route::post('/jadwal/store', [App\Http\Controllers\JadwalController::class, 'store'])->name('jadwal.store');
     Route::get('/jadwal/edit/{id}', [App\Http\Controllers\JadwalController::class, 'edit'])->name('jadwal.edit');
-    Route::post('/jadwal/update/{id}', [App\Http\Controllers\JadwalController::class, 'update'])->name('jadwal.update');
+    Route::get('/jadwal/editt/{id}', [App\Http\Controllers\JadwalController::class, 'editt'])->name('jadwal.editt');
+    Route::put('/jadwal/update/{id}', [App\Http\Controllers\JadwalController::class, 'update'])->name('jadwal.update');
+    Route::put('/jadwal/updateperiksa/{id}', [App\Http\Controllers\JadwalController::class, 'updatee'])->name('jadwal.updateperiksa');
     Route::delete('/jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'destroy'])->name('jadwal.destroy');
+    Route::delete('/jadwalperiksa/{id}', [App\Http\Controllers\JadwalController::class, 'destroyPeriksa'])->name('jadwal.destroyperiksa');
     Route::get('/jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'show'])->name('jadwal.show');
 
 
@@ -59,7 +62,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/ingat/update/{id}', [App\Http\Controllers\JadwalController::class, 'ingatUpdate'])->name('jadwal.pengingat.update');
     Route::delete('/ingat/{id}', [App\Http\Controllers\JadwalController::class, 'ingatDestroy'])->name('jadwal.pengingat.destroy');
     Route::post('/ingat/update-jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'updateJadwalPengingat'])->name('jadwal.updateJadwalPengingat');
-    Route::post('/periksa/update/{id}', [App\Http\Controllers\JadwalController::class, 'updateJadwalPeriksa'])->name('jadwal.updateJadwalPeriksa');
+    Route::put('/periksa/update/{id}', [App\Http\Controllers\JadwalController::class, 'updateJadwalPeriksa'])->name('jadwal.updateJadwalPeriksa');
     Route::delete('/jadwal/pengingat/{id}', [App\Http\Controllers\JadwalController::class, 'destroyPengingat'])->name('jadwal.destroyPengingat');
     Route::delete('/jadwal/periksa/{id}', [App\Http\Controllers\JadwalController::class, 'destroyPeriksa'])->name('jadwal.destroyPeriksa');
 

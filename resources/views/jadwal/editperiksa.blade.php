@@ -6,7 +6,7 @@
 <div class="d-flex align-items-center mb-4 animate__animated animate__fadeIn">
     <div>
         <h1 class="m-0 fw-bold" style="color: #008080; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
-            Edit Form Periksa Suntik KB
+            Edit Periksa Suntik KB
         </h1>
         <p class="text-muted mb-0 mt-1">
             <i class="fas fa-info-circle me-1"></i>

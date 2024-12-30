@@ -132,10 +132,10 @@
                                     <td>{{ $periksaa->jenisPengingat }}</td>
                                     <td>
                                         <div class="d-flex gap-2">
-                                            <a href="{{ route('jadwal.edit', $periksaa->id) }}" class="btn btn-warning btn-sm">
+                                            <a href="{{ route('jadwal.editt', $periksaa->id) }}" class="btn btn-warning btn-sm">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <form action="{{ route('jadwal.destroy', $periksaa->id) }}" method="POST" class="m-0">
+                                            <form action="{{ route('jadwal.destroyperiksa', $periksaa->id) }}" method="POST" class="m-0">
                                                 @csrf
                                                 @method('DELETE')
                                             <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">

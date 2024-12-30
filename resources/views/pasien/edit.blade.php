@@ -35,8 +35,8 @@
                                 <input type="text" class="form-control shadow-sm" id="telepon" name="telepon" value="{{ $pasien->telepon }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="idDokter" class="font-weight-bold">Nama Dokter</label>
-                                <input type="text" class="form-control shadow-sm" id="idDokter" name="idDokter" value="{{ $pasien->idDokter }}" required>
+                                <label for="namaDokter" class="font-weight-bold">Nama Dokter</label>
+                                <input type="text" class="form-control shadow-sm" id="namaDokter" name="namaDokter" value="{{ $pasien->namaDokter }}" required>
                             </div>
                         </div>
                         <div class="col-md-6">

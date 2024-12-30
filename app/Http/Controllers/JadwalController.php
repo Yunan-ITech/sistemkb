@@ -90,7 +90,7 @@ class JadwalController extends Controller
 
     public function update(Request $request, $id)
     {
-        $jadwal = JadwalSuntik::find($id);
+        $jadwal = JadwalSuntikKB::find($id);
         $jadwal->namaPasien = $request->namaPasien;
         $jadwal->noTelepon = $request->noTelepon;
         $jadwal->tanggalSuntik = $request->tanggalSuntik;
@@ -101,9 +101,22 @@ class JadwalController extends Controller
         return redirect()->route('jadwal');
     }
 
+    public function updatee(Request $request, $id)
+    {
+        $jadwal = JadwalPeriksa::find($id);
+        $jadwal->namaPasien = $request->namaPasien;
+        $jadwal->noTelepon = $request->noTelepon;
+        $jadwal->tanggalPeriksa = $request->tanggalPeriksa;
+        $jadwal->tanggalPengingat = $request->tanggalPengingat;
+        $jadwal->jadwalPengingat = $request->jadwalPengingat;
+        $jadwal->jenisPengingat = $request->jenisPengingat;
+        $jadwal->save();
+        return redirect()->route('jadwal');
+    }
+
     public function destroy($id)
     {
-        $jadwal = Jadwal::find($id);
+        $jadwal = JadwalSuntikKB::find($id);
         if ($jadwal) {
             $jadwal->delete();
             return redirect()->route('jadwal');
@@ -111,17 +124,7 @@ class JadwalController extends Controller
         return redirect()->route('jadwal')->with('error', 'Jadwal not found');
     }
 
-    public function destroyPengingat($id)
-    {
-        $pengingat = JadwalSuntikKB::find($id);
-        if ($pengingat) {
-            $pengingat->delete();
-            return redirect()->route('jadwal')->with('success', 'Data pengingat berhasil dihapus');
-        }
-        return redirect()->route('jadwal')->with('error', 'Data pengingat tidak ditemukan');
-    }
-
-    public function destroyPeriksa($id) 
+    public function destroyPeriksa($id)
     {
         $periksa = JadwalPeriksa::find($id);
         if ($periksa) {
@@ -191,6 +194,12 @@ class JadwalController extends Controller
     {
         $pengingat = JadwalSuntikKB::findOrFail($id);
         return view('jadwal.edit', compact('pengingat'));
+    }
+
+    public function editt($id)
+    {
+        $jadwal = JadwalPeriksa::findOrFail($id);
+        return view('jadwal.editperiksa', compact('jadwal'));
     }
 
     public function updateJadwalPengingat(Request $request, $id)
